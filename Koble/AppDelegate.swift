@@ -6,14 +6,18 @@
 //
 
 import UIKit
+import Firebase//initializing firebase
 
-@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        //automatic connection to the firebase databse
+        FirebaseApp.configure()
+        
         return true
     }
 

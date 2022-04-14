@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16C0AA1A5E13CB05D1959E0C /* Pods_Koble_KobleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A17EF39D42F856583DDB8AB /* Pods_Koble_KobleUITests.framework */; };
+		6FE8A72E8C5B5AC2CEA40F89 /* Pods_Koble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B58F8C40635476B32CF37FC /* Pods_Koble.framework */; };
+		9A527CE9280249140043AE55 /* signinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A527CE8280249140043AE55 /* signinViewController.swift */; };
+		9A527CEB2802493F0043AE55 /* signupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A527CEA2802493F0043AE55 /* signupViewController.swift */; };
+		9A594A112804C4860088DE28 /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A594A102804C4860088DE28 /* FirebaseUser.swift */; };
 		9A6E79FE27EE8491000EA461 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6E79FD27EE8491000EA461 /* AppDelegate.swift */; };
 		9A6E7A0027EE8491000EA461 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6E79FF27EE8491000EA461 /* SceneDelegate.swift */; };
 		9A6E7A0227EE8491000EA461 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6E7A0127EE8491000EA461 /* ViewController.swift */; };
@@ -15,6 +20,22 @@
 		9A6E7A0A27EE8493000EA461 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6E7A0827EE8493000EA461 /* LaunchScreen.storyboard */; };
 		9A6E7A1527EE8493000EA461 /* KobleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6E7A1427EE8493000EA461 /* KobleTests.swift */; };
 		9A6E7A2027EE8493000EA461 /* KobleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6E7A1F27EE8493000EA461 /* KobleUITests.swift */; };
+		9AB9518C27FF4BC5005A0FD7 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9517E27FF4BC5005A0FD7 /* Rubik-MediumItalic.ttf */; };
+		9AB9518D27FF4BC5005A0FD7 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9517F27FF4BC5005A0FD7 /* Rubik-Bold.ttf */; };
+		9AB9518E27FF4BC5005A0FD7 /* Rubik-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9518027FF4BC5005A0FD7 /* Rubik-SemiBoldItalic.ttf */; };
+		9AB9518F27FF4BC5005A0FD7 /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9518127FF4BC5005A0FD7 /* Rubik-Light.ttf */; };
+		9AB9519027FF4BC5005A0FD7 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9518227FF4BC5005A0FD7 /* Rubik-Medium.ttf */; };
+		9AB9519127FF4BC5005A0FD7 /* Rubik-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9518327FF4BC5005A0FD7 /* Rubik-ExtraBoldItalic.ttf */; };
+		9AB9519227FF4BC5005A0FD7 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9518427FF4BC5005A0FD7 /* Rubik-Black.ttf */; };
+		9AB9519327FF4BC5005A0FD7 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9518527FF4BC5005A0FD7 /* Rubik-Italic.ttf */; };
+		9AB9519427FF4BC5005A0FD7 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9518627FF4BC5005A0FD7 /* Rubik-LightItalic.ttf */; };
+		9AB9519527FF4BC5005A0FD7 /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9518727FF4BC5005A0FD7 /* Rubik-SemiBold.ttf */; };
+		9AB9519627FF4BC5005A0FD7 /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9518827FF4BC5005A0FD7 /* Rubik-BlackItalic.ttf */; };
+		9AB9519727FF4BC5005A0FD7 /* Rubik-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9518927FF4BC5005A0FD7 /* Rubik-ExtraBold.ttf */; };
+		9AB9519827FF4BC5005A0FD7 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9518A27FF4BC5005A0FD7 /* Rubik-Regular.ttf */; };
+		9AB9519927FF4BC5005A0FD7 /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9518B27FF4BC5005A0FD7 /* Rubik-BoldItalic.ttf */; };
+		9AD813AF27EFBE9700F988E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AD813AE27EFBE9700F988E4 /* GoogleService-Info.plist */; };
+		AC96BC29398F919510E9A8D8 /* Pods_KobleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 647BD3BBAF28C31DDA79BB9D /* Pods_KobleTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +56,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A17EF39D42F856583DDB8AB /* Pods_Koble_KobleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koble_KobleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B58F8C40635476B32CF37FC /* Pods_Koble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CA812E61F0ED037FE5DB4EC /* Pods-KobleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KobleTests.debug.xcconfig"; path = "Target Support Files/Pods-KobleTests/Pods-KobleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		42873521A5EB4F371D0E0D40 /* Pods-Koble-KobleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koble-KobleUITests.release.xcconfig"; path = "Target Support Files/Pods-Koble-KobleUITests/Pods-Koble-KobleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		55C51B4AE2076A6EF338E279 /* Pods-KobleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KobleTests.release.xcconfig"; path = "Target Support Files/Pods-KobleTests/Pods-KobleTests.release.xcconfig"; sourceTree = "<group>"; };
+		647BD3BBAF28C31DDA79BB9D /* Pods_KobleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KobleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		896BB52F0946D5409327CB17 /* Pods-Koble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koble.debug.xcconfig"; path = "Target Support Files/Pods-Koble/Pods-Koble.debug.xcconfig"; sourceTree = "<group>"; };
+		9A527CE8280249140043AE55 /* signinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signinViewController.swift; sourceTree = "<group>"; };
+		9A527CEA2802493F0043AE55 /* signupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signupViewController.swift; sourceTree = "<group>"; };
+		9A594A102804C4860088DE28 /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		9A6E79FA27EE8491000EA461 /* Koble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Koble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6E79FD27EE8491000EA461 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A6E79FF27EE8491000EA461 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +80,23 @@
 		9A6E7A1B27EE8493000EA461 /* KobleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KobleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6E7A1F27EE8493000EA461 /* KobleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KobleUITests.swift; sourceTree = "<group>"; };
 		9A6E7A2127EE8493000EA461 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AB9517E27FF4BC5005A0FD7 /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
+		9AB9517F27FF4BC5005A0FD7 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		9AB9518027FF4BC5005A0FD7 /* Rubik-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		9AB9518127FF4BC5005A0FD7 /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
+		9AB9518227FF4BC5005A0FD7 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
+		9AB9518327FF4BC5005A0FD7 /* Rubik-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		9AB9518427FF4BC5005A0FD7 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
+		9AB9518527FF4BC5005A0FD7 /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
+		9AB9518627FF4BC5005A0FD7 /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
+		9AB9518727FF4BC5005A0FD7 /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
+		9AB9518827FF4BC5005A0FD7 /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
+		9AB9518927FF4BC5005A0FD7 /* Rubik-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-ExtraBold.ttf"; sourceTree = "<group>"; };
+		9AB9518A27FF4BC5005A0FD7 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		9AB9518B27FF4BC5005A0FD7 /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
+		9AD813AE27EFBE9700F988E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A21C1939FF4CDF7CA19FEC6E /* Pods-Koble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koble.release.xcconfig"; path = "Target Support Files/Pods-Koble/Pods-Koble.release.xcconfig"; sourceTree = "<group>"; };
+		F4F8B5EF0FDDDCA806C150BA /* Pods-Koble-KobleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koble-KobleUITests.debug.xcconfig"; path = "Target Support Files/Pods-Koble-KobleUITests/Pods-Koble-KobleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FE8A72E8C5B5AC2CEA40F89 /* Pods_Koble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC96BC29398F919510E9A8D8 /* Pods_KobleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,19 +120,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16C0AA1A5E13CB05D1959E0C /* Pods_Koble_KobleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		389031B7B0D943B974908E10 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0B58F8C40635476B32CF37FC /* Pods_Koble.framework */,
+				0A17EF39D42F856583DDB8AB /* Pods_Koble_KobleUITests.framework */,
+				647BD3BBAF28C31DDA79BB9D /* Pods_KobleTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		922883707F04A8A865FDE97C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				896BB52F0946D5409327CB17 /* Pods-Koble.debug.xcconfig */,
+				A21C1939FF4CDF7CA19FEC6E /* Pods-Koble.release.xcconfig */,
+				F4F8B5EF0FDDDCA806C150BA /* Pods-Koble-KobleUITests.debug.xcconfig */,
+				42873521A5EB4F371D0E0D40 /* Pods-Koble-KobleUITests.release.xcconfig */,
+				2CA812E61F0ED037FE5DB4EC /* Pods-KobleTests.debug.xcconfig */,
+				55C51B4AE2076A6EF338E279 /* Pods-KobleTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9A6E79F127EE8491000EA461 = {
 			isa = PBXGroup;
 			children = (
+				9AB9517D27FF4BC5005A0FD7 /* font */,
 				9A6E79FC27EE8491000EA461 /* Koble */,
 				9A6E7A1327EE8493000EA461 /* KobleTests */,
 				9A6E7A1E27EE8493000EA461 /* KobleUITests */,
 				9A6E79FB27EE8491000EA461 /* Products */,
+				922883707F04A8A865FDE97C /* Pods */,
+				389031B7B0D943B974908E10 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,10 +179,14 @@
 				9A6E79FD27EE8491000EA461 /* AppDelegate.swift */,
 				9A6E79FF27EE8491000EA461 /* SceneDelegate.swift */,
 				9A6E7A0127EE8491000EA461 /* ViewController.swift */,
+				9A527CE8280249140043AE55 /* signinViewController.swift */,
+				9A527CEA2802493F0043AE55 /* signupViewController.swift */,
+				9A594A102804C4860088DE28 /* FirebaseUser.swift */,
 				9A6E7A0327EE8491000EA461 /* Main.storyboard */,
 				9A6E7A0627EE8493000EA461 /* Assets.xcassets */,
 				9A6E7A0827EE8493000EA461 /* LaunchScreen.storyboard */,
 				9A6E7A0B27EE8493000EA461 /* Info.plist */,
+				9AD813AE27EFBE9700F988E4 /* GoogleService-Info.plist */,
 			);
 			path = Koble;
 			sourceTree = "<group>";
@@ -128,6 +209,27 @@
 			path = KobleUITests;
 			sourceTree = "<group>";
 		};
+		9AB9517D27FF4BC5005A0FD7 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				9AB9517E27FF4BC5005A0FD7 /* Rubik-MediumItalic.ttf */,
+				9AB9517F27FF4BC5005A0FD7 /* Rubik-Bold.ttf */,
+				9AB9518027FF4BC5005A0FD7 /* Rubik-SemiBoldItalic.ttf */,
+				9AB9518127FF4BC5005A0FD7 /* Rubik-Light.ttf */,
+				9AB9518227FF4BC5005A0FD7 /* Rubik-Medium.ttf */,
+				9AB9518327FF4BC5005A0FD7 /* Rubik-ExtraBoldItalic.ttf */,
+				9AB9518427FF4BC5005A0FD7 /* Rubik-Black.ttf */,
+				9AB9518527FF4BC5005A0FD7 /* Rubik-Italic.ttf */,
+				9AB9518627FF4BC5005A0FD7 /* Rubik-LightItalic.ttf */,
+				9AB9518727FF4BC5005A0FD7 /* Rubik-SemiBold.ttf */,
+				9AB9518827FF4BC5005A0FD7 /* Rubik-BlackItalic.ttf */,
+				9AB9518927FF4BC5005A0FD7 /* Rubik-ExtraBold.ttf */,
+				9AB9518A27FF4BC5005A0FD7 /* Rubik-Regular.ttf */,
+				9AB9518B27FF4BC5005A0FD7 /* Rubik-BoldItalic.ttf */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +237,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A6E7A2427EE8493000EA461 /* Build configuration list for PBXNativeTarget "Koble" */;
 			buildPhases = (
+				2BFA07E001FC2D666C7D1AEF /* [CP] Check Pods Manifest.lock */,
 				9A6E79F627EE8491000EA461 /* Sources */,
 				9A6E79F727EE8491000EA461 /* Frameworks */,
 				9A6E79F827EE8491000EA461 /* Resources */,
+				5C6BF15020990EB6E2016E66 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +256,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A6E7A2727EE8493000EA461 /* Build configuration list for PBXNativeTarget "KobleTests" */;
 			buildPhases = (
+				B4B38DB5DF404BE4593E2FFA /* [CP] Check Pods Manifest.lock */,
 				9A6E7A0C27EE8493000EA461 /* Sources */,
 				9A6E7A0D27EE8493000EA461 /* Frameworks */,
 				9A6E7A0E27EE8493000EA461 /* Resources */,
@@ -170,9 +275,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A6E7A2A27EE8493000EA461 /* Build configuration list for PBXNativeTarget "KobleUITests" */;
 			buildPhases = (
+				FB16DEB2C51BEB03770C101E /* [CP] Check Pods Manifest.lock */,
 				9A6E7A1727EE8493000EA461 /* Sources */,
 				9A6E7A1827EE8493000EA461 /* Frameworks */,
 				9A6E7A1927EE8493000EA461 /* Resources */,
+				9C5481DE6F3A393B2EE0C7B2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -232,8 +339,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A6E7A0A27EE8493000EA461 /* LaunchScreen.storyboard in Resources */,
+				9AB9518D27FF4BC5005A0FD7 /* Rubik-Bold.ttf in Resources */,
+				9AD813AF27EFBE9700F988E4 /* GoogleService-Info.plist in Resources */,
+				9AB9519227FF4BC5005A0FD7 /* Rubik-Black.ttf in Resources */,
+				9AB9518C27FF4BC5005A0FD7 /* Rubik-MediumItalic.ttf in Resources */,
+				9AB9519627FF4BC5005A0FD7 /* Rubik-BlackItalic.ttf in Resources */,
 				9A6E7A0727EE8493000EA461 /* Assets.xcassets in Resources */,
+				9AB9519927FF4BC5005A0FD7 /* Rubik-BoldItalic.ttf in Resources */,
+				9AB9518F27FF4BC5005A0FD7 /* Rubik-Light.ttf in Resources */,
+				9AB9519427FF4BC5005A0FD7 /* Rubik-LightItalic.ttf in Resources */,
+				9AB9519027FF4BC5005A0FD7 /* Rubik-Medium.ttf in Resources */,
+				9AB9519327FF4BC5005A0FD7 /* Rubik-Italic.ttf in Resources */,
 				9A6E7A0527EE8491000EA461 /* Main.storyboard in Resources */,
+				9AB9519127FF4BC5005A0FD7 /* Rubik-ExtraBoldItalic.ttf in Resources */,
+				9AB9519827FF4BC5005A0FD7 /* Rubik-Regular.ttf in Resources */,
+				9AB9518E27FF4BC5005A0FD7 /* Rubik-SemiBoldItalic.ttf in Resources */,
+				9AB9519727FF4BC5005A0FD7 /* Rubik-ExtraBold.ttf in Resources */,
+				9AB9519527FF4BC5005A0FD7 /* Rubik-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,14 +375,120 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2BFA07E001FC2D666C7D1AEF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Koble-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C6BF15020990EB6E2016E66 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Koble/Pods-Koble-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Koble/Pods-Koble-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Koble/Pods-Koble-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C5481DE6F3A393B2EE0C7B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Koble-KobleUITests/Pods-Koble-KobleUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Koble-KobleUITests/Pods-Koble-KobleUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Koble-KobleUITests/Pods-Koble-KobleUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4B38DB5DF404BE4593E2FFA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KobleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB16DEB2C51BEB03770C101E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Koble-KobleUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9A6E79F627EE8491000EA461 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A527CE9280249140043AE55 /* signinViewController.swift in Sources */,
 				9A6E7A0227EE8491000EA461 /* ViewController.swift in Sources */,
+				9A527CEB2802493F0043AE55 /* signupViewController.swift in Sources */,
 				9A6E79FE27EE8491000EA461 /* AppDelegate.swift in Sources */,
 				9A6E7A0027EE8491000EA461 /* SceneDelegate.swift in Sources */,
+				9A594A112804C4860088DE28 /* FirebaseUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +546,7 @@
 		9A6E7A2227EE8493000EA461 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -379,6 +608,7 @@
 		9A6E7A2327EE8493000EA461 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -433,7 +663,9 @@
 		};
 		9A6E7A2527EE8493000EA461 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 896BB52F0946D5409327CB17 /* Pods-Koble.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -446,13 +678,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dladden.Koble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		9A6E7A2627EE8493000EA461 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A21C1939FF4CDF7CA19FEC6E /* Pods-Koble.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -465,14 +699,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dladden.Koble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		9A6E7A2827EE8493000EA461 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CA812E61F0ED037FE5DB4EC /* Pods-KobleTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7FKWJJFPN7;
@@ -493,8 +728,9 @@
 		};
 		9A6E7A2927EE8493000EA461 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55C51B4AE2076A6EF338E279 /* Pods-KobleTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7FKWJJFPN7;
@@ -515,8 +751,9 @@
 		};
 		9A6E7A2B27EE8493000EA461 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4F8B5EF0FDDDCA806C150BA /* Pods-Koble-KobleUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7FKWJJFPN7;
 				INFOPLIST_FILE = KobleUITests/Info.plist;
@@ -535,8 +772,9 @@
 		};
 		9A6E7A2C27EE8493000EA461 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42873521A5EB4F371D0E0D40 /* Pods-Koble-KobleUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7FKWJJFPN7;
 				INFOPLIST_FILE = KobleUITests/Info.plist;
