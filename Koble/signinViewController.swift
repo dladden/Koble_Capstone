@@ -35,15 +35,32 @@ class signinViewController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: Any) {
         
         if emailTextField.text != "" && passwordTextField.text != ""{
-            //then reset the password
+            
+            FirebaseUser.loginUserWith(email: emailTextField.text!, password: passwordTextField.text!) { (error, isEmailVarified) in
+                //if there are an erros since it would be not nill
+                if error != nil {
+                    
+                    ProgressHUD.showError(error!.localizedDescription)
+                    
+                }else if isEmailVarified {
+                    
+                    //enter the application
+                    print("user enters the app")
+                }else{
+                    
+                    ProgressHUD.showError("Please verify your email ")
+                    
+                }
+                
+            }//end firbase login user
             
         }else{
             //show error
             ProgressHUD.showError("please add your email and password")
-        }
+        }//end else
         
         
-    }
+    }//end login function
     
     
     @IBAction func forgotPasswordButtonPressed(_ sender: Any) {

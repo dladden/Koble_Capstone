@@ -117,7 +117,35 @@ class FirebaseUser: Equatable{
     }//end initializer
     
     //MARK: - Loggin User
-    
+    //this function has a callback for
+    class func loginUserWith(email: String, password: String, completion: @escaping (_ error: Error?, _ isEmailVarified: Bool) -> Void ){
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (authDataResult, error) in
+            //checking if there are any errors if error is nill user has been logged in
+            if error == nil{
+        
+                //if email of the user is varified
+                if authDataResult!.user.isEmailVerified{
+                    //if user is alredy verified find them if not add them to databe
+                    
+                    //check to see if user is in firebase
+                    
+                        completion(error, true)
+                }else{
+                    print("Email not verified")
+                    completion(error, false)
+                }
+                
+            }else{
+                //if there is error we have error
+                completion(error, false)
+                
+            }
+            
+            
+        }
+        
+    }//end function loginUserWith
     
     
     
