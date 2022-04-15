@@ -70,12 +70,19 @@ class signupViewController: UIViewController {
             
         
             if isTextDataInputed(){
-                //regiter the user
+                //regiter the user sectoin
+                
+                //confirming that the password is the same
+                if passwordTextFeild.text! == confirmPasswordTextField.text!{
+                    registerUser()//call register fucntion
+                }else{
+                    ProgressHUD.showError("passwords do not match ):")
+                }//end if else
                 registerUser()
                 
             }else{
                 ProgressHUD.showError("please fill in all fields")
-            }
+            }//end if else
             
             
             
@@ -134,11 +141,27 @@ class signupViewController: UIViewController {
     //MARK: - RegisterUser
     //When function called user object should be registered
     private func registerUser(){
-        //Forced Unwrapping
+        
+        //showing progress for the user
+        ProgressHUD.show()
+        
+        //Forced Unwrapping function which checks if everything is entered
         FirebaseUser.registerUserWith(userName: usernameTextField.text!, email: emailTextField.text!, dateOfBirth: Date(), isFemale: isFemale, city: cityTextField.text!, password: passwordTextFeild.text!, completion:{
             error in
             
-            print("callback")
+            //ProgressHUD.dismiss()
+            //print("callback")
+            
+            //chekicng if there was an error
+            //if error is nill email is sent else show error
+            //(error is forece unwrapped since it will have 1 as value)
+            if error == nil{
+                ProgressHUD.showSuccess("verifiaction email sent!")
+                self.dismiss(animated: true, completion: nil)//dismissing the create account ui
+            }else{
+                ProgressHUD.showError(error!.localizedDescription)
+            }
+            
             
         })
         

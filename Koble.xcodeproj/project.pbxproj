@@ -20,6 +20,7 @@
 		9A6E7A0A27EE8493000EA461 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6E7A0827EE8493000EA461 /* LaunchScreen.storyboard */; };
 		9A6E7A1527EE8493000EA461 /* KobleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6E7A1427EE8493000EA461 /* KobleTests.swift */; };
 		9A6E7A2027EE8493000EA461 /* KobleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6E7A1F27EE8493000EA461 /* KobleUITests.swift */; };
+		9A8746982809CAA400C59697 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8746972809CAA400C59697 /* Constants.swift */; };
 		9AB9518C27FF4BC5005A0FD7 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9517E27FF4BC5005A0FD7 /* Rubik-MediumItalic.ttf */; };
 		9AB9518D27FF4BC5005A0FD7 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9517F27FF4BC5005A0FD7 /* Rubik-Bold.ttf */; };
 		9AB9518E27FF4BC5005A0FD7 /* Rubik-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9518027FF4BC5005A0FD7 /* Rubik-SemiBoldItalic.ttf */; };
@@ -80,6 +81,7 @@
 		9A6E7A1B27EE8493000EA461 /* KobleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KobleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6E7A1F27EE8493000EA461 /* KobleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KobleUITests.swift; sourceTree = "<group>"; };
 		9A6E7A2127EE8493000EA461 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A8746972809CAA400C59697 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9AB9517E27FF4BC5005A0FD7 /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
 		9AB9517F27FF4BC5005A0FD7 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
 		9AB9518027FF4BC5005A0FD7 /* Rubik-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				9A527CE8280249140043AE55 /* signinViewController.swift */,
 				9A527CEA2802493F0043AE55 /* signupViewController.swift */,
 				9A594A102804C4860088DE28 /* FirebaseUser.swift */,
+				9A8746972809CAA400C59697 /* Constants.swift */,
 				9A6E7A0327EE8491000EA461 /* Main.storyboard */,
 				9A6E7A0627EE8493000EA461 /* Assets.xcassets */,
 				9A6E7A0827EE8493000EA461 /* LaunchScreen.storyboard */,
@@ -487,6 +490,7 @@
 				9A6E7A0227EE8491000EA461 /* ViewController.swift in Sources */,
 				9A527CEB2802493F0043AE55 /* signupViewController.swift in Sources */,
 				9A6E79FE27EE8491000EA461 /* AppDelegate.swift in Sources */,
+				9A8746982809CAA400C59697 /* Constants.swift in Sources */,
 				9A6E7A0027EE8491000EA461 /* SceneDelegate.swift in Sources */,
 				9A594A112804C4860088DE28 /* FirebaseUser.swift in Sources */,
 			);
