@@ -94,7 +94,7 @@ class FirebaseUser: Equatable{
     //MARK: - Inits
     //this where user will be intialize so that every user can use it
     
-    //initializer for user Object (like JAVA CONSTRUCTOR)
+    //INITIALIZER for user Object (like JAVA CONSTRUCTOR)
     init(_objectId: String, _username: String, _email: String, _city: String, _dateOfBirth: Date, _isFemale: Bool, _profImgLink: String = ""){
         
         //setting initalization
@@ -116,6 +116,37 @@ class FirebaseUser: Equatable{
         
     }//end initializer
     
+    //INITIALIZER for FirebaseListener when user is downloaded from firebase we should
+    //have access to all values
+    init(_dictionary: NSDictionary){
+        //DICTIONARY UNWRAPING
+        //passing the key thorugh dictionary force unwrapped to String OPTIONAL (?)
+        //and if it is not a string (??) then assign a String ("")
+        objectId = _dictionary[kOBJECTID] as? String ?? ""
+        username = _dictionary[kUSERNAME] as? String ?? ""
+        email = _dictionary[kEMAIL] as? String ?? ""
+        profImgLink = _dictionary[kPROFILEIMGLINK] as? String ?? ""
+        city = _dictionary[kCITY] as? String ?? ""
+        country = _dictionary[kCOUNTRY] as? String ?? ""
+        isFemale = _dictionary[kISFEMALE] as? Bool ?? true
+        interest = _dictionary[kINTEREST] as? String ?? ""
+        currentJob = _dictionary[kCURRENTJOB] as? String ?? ""
+        interestedIn = _dictionary[kINTERESTEDIN] as? String ?? ""
+        //initialized arrays
+        likedIdArray = _dictionary[kINTERESTEDIN] as? [String]
+        imageLinks = _dictionary[kINTERESTEDIN] as? [String]
+        
+        if let date = _dictionary[kDATEOFBIRTH] as? Timestamp {
+            //dateValue is a Firebase fucntion which creates a date object from time stamp
+            dateOfBirth = date.dateValue()
+        }else{
+            dateOfBirth = _dictionary[kDATEOFBIRTH] as? Date ?? Date()
+        }
+        
+        
+    }//end initializer
+    
+    
     //MARK: - Loggin User
     //this function has a callback for
     class func loginUserWith(email: String, password: String, completion: @escaping (_ error: Error?, _ isEmailVarified: Bool) -> Void ){
@@ -128,7 +159,8 @@ class FirebaseUser: Equatable{
                 if authDataResult!.user.isEmailVerified{
                     //if user is alredy verified find them if not add them to databe
                     
-                    //check to see if user is in firebase
+                    //check to see if user is in firebase---------------------------
+                    FirebaseListener.shared
                     
                         completion(error, true)
                 }else{
@@ -143,7 +175,9 @@ class FirebaseUser: Equatable{
             }
             
             
-        }
+        }//end auth
+        
+        
         
     }//end function loginUserWith
     
@@ -200,6 +234,8 @@ class FirebaseUser: Equatable{
         
     }//end function registerUserWith
     
+    //MARK: - Save User
+    
     func saveUSerLoc(){
         
         //setting the keys from Contraints calss to the objects of NSDictionary userDic
@@ -209,5 +245,19 @@ class FirebaseUser: Equatable{
         
     }//end saveUserLocally
     
+    //saves user to the firestore and used by the downloadCurrentUserFirebase in FirebaseListener class 
+    func saveUserToFirestore(){
+        //seting document name as self objectId
+        FirebaseReference(.User).document(self.objectId).setData(self.userDic as! [String : Any]){(error) in
+            
+            if error != nil{
+                print(error!.localizedDescription)
+            }
+            
+        }
+        
+        
+        
+    }//end saveUserToFirestore
     
 }//end eqyuitable
