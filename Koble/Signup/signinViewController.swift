@@ -8,6 +8,7 @@
 import UIKit
 import ProgressHUD//Pod Libarary Alows to show Errors
 
+
 class signinViewController: UIViewController {
 
     //MARK: - IBOutlets
@@ -22,6 +23,7 @@ class signinViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //button styling
+       
         emailTextField.layer.cornerRadius = 18
         passwordTextField.layer.cornerRadius = 18
         
@@ -40,11 +42,14 @@ class signinViewController: UIViewController {
                 //if there are an erros since it would be not nill
                 if error != nil {
                     
+                    
                     ProgressHUD.showError(error!.localizedDescription)
                     
                 }else if isEmailVarified {
                     
                     //enter the application
+                    self.goToApp()
+                    
                     print("user enters the app")
                 }else{
                     
@@ -67,9 +72,21 @@ class signinViewController: UIViewController {
         
         if emailTextField.text != ""{
             //then reset the password
+            FirebaseUser.resetPasswordFor(email: emailTextField.text!) { (error) in
+                
+                if error != nil{
+                    ProgressHUD.showError(error!.localizedDescription)
+                }else{
+                    ProgressHUD.colorHUD = .purple
+                    ProgressHUD.showSuccess("please check your email for reset (:")
+                }
+                
+            }
+            
             
         }else{
             //show error
+            ProgressHUD.colorHUD = .purple
             ProgressHUD.showError("please type in your email")
         }
     }//end forgotPasswordButtonPressed
@@ -97,6 +114,18 @@ class signinViewController: UIViewController {
         self.view.endEditing(false)
        
     }//end dismissKeyboard
+    
+    //MARK: - Navigation
+    //after login and varification this function is called
+    private func goToApp(){
+        //instentiating the TabBarController in storyboard as main view
+        let MainViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "Main View Controller") as! UITabBarController
+        
+        //need fullscreen asccess -- todo this we modify the mainViewcontroller
+        MainViewController.modalPresentationStyle = .fullScreen
+        self.present(MainViewController, animated: true, completion: nil)
+        
+    }//end function go to app
     
     
     

@@ -6,17 +6,29 @@
 //
 
 import UIKit
-
+//for autolofin to check for a local user. Firebase has a function which tracks
+//if user has been logged in, lets use it
+import FirebaseAuth
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    //first window when application openes when app is initialized
     var window: UIWindow?
-
+    //Firebase autheticator listener
+    var authListener: AuthStateDidChangeListenerHandle?
+    
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        //AUTOLOGIN Function called from Autologgin
+        //print("Autologin")
+        autoLogin()
+        
+        
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -47,6 +59,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    //MARK: - Autologin
+    //AUTOLOGIN Function
+    func autoLogin(){
+        //assigning the sate listner to the authListener
+        authListener = Auth.auth().addStateDidChangeListener({ (auth, user) in
+            //when logged out change the state of the listener so that it is not
+            //listening any mmore (force unwrap bc it is an optional)
+            Auth.auth().removeStateDidChangeListener(self.authListener!)
+            //make sure the user exists in db then access the application
+            if user != nil && userDefault.object(forKey: kCURRENTUSER) != nil{
+                
+                DispatchQueue.main.async {
+                    self.goToApp()
+                }//end DispatchQueue
+                
+            }
+            
+        })
+        
+        
+    }//end func autoLogin
+    
+    //this function will be used to take the user to the Main View Controller
+    private func goToApp(){
+        //instentiating the TabBarController in storyboard as main view
+        let MainViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "Main View Controller") as! UITabBarController
+        //using the UIwindow varibale to set is as a root view
+        self.window?.rootViewController = MainViewController
+        
+    }//end func goToApp
 
-}
+}//end class SceneDelegate
 

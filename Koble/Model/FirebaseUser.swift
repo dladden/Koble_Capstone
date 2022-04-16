@@ -159,8 +159,9 @@ class FirebaseUser: Equatable{
                 if authDataResult!.user.isEmailVerified{
                     //if user is alredy verified find them if not add them to databe
                     
-                    //check to see if user is in firebase---------------------------
-                    FirebaseListener.shared
+        //check to see if user is in firebase---------------------------
+                    //singelton instace of the listener
+                    FirebaseListener.shared.downloadCurrentUserFirebase(userId: authDataResult!.user.uid, email: email)
                     
                         completion(error, true)
                 }else{
@@ -234,6 +235,25 @@ class FirebaseUser: Equatable{
         
     }//end function registerUserWith
     
+    //MARK: - SENDING LINKS (passord reset)
+    //function which takes an email (has a complecion handler for error)
+    class func resetPasswordFor(email: String, completion: @escaping (_ error: Error?) -> Void){
+        //current user is a Firebase current use which is currently logged in is provided
+        //by firebase. reload checks if it exist
+        Auth.auth().currentUser?.reload(completion: { (error) in
+            //if it does verification email sent to that user
+            Auth.auth().currentUser?.sendEmailVerification(completion: { (error) in
+                //notify complicion in
+                completion(error)
+                
+            })//end email sent
+            
+        })
+        
+    }//end resetPasswordFor function
+    
+    
+    
     //MARK: - Save User
     
     func saveUSerLoc(){
@@ -247,14 +267,14 @@ class FirebaseUser: Equatable{
     
     //saves user to the firestore and used by the downloadCurrentUserFirebase in FirebaseListener class 
     func saveUserToFirestore(){
-        //seting document name as self objectId
+        //seting document name as self objectId with error debuging view in case things go wrong
         FirebaseReference(.User).document(self.objectId).setData(self.userDic as! [String : Any]){(error) in
-            
+            //if there is an error (if not nil there is an error) show it
             if error != nil{
                 print(error!.localizedDescription)
-            }
+            }//end if
             
-        }
+        }//end FirebaseReference
         
         
         
