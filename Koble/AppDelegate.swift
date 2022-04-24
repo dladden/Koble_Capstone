@@ -35,6 +35,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    //MARK: - UIConfiguration
+    
+    private func setupUIConfigurations(){
+        
+        
+        
+    }//end func setupUIConfigurations
+    
 
 }
 

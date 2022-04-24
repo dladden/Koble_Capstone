@@ -13,7 +13,9 @@ import ProgressHUD
 class signupViewController: UIViewController {
 
     //MARK: - Vars
-    var isActive: Bool = false//varibale for the signup button to create the imageUI change
+    
+    
+    //var isActive: Bool = false//varibale for the signup button to create the imageUI change
     var isFemale = true//varibale for the female/male segment
     
     
@@ -21,10 +23,10 @@ class signupViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var dateOfBirthTextField: UITextField!
+    
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var genderSegmentedOutlet: UISegmentedControl!
-    
+    @IBOutlet weak var dateOfBirthPicker: UIDatePicker!
     //password
     @IBOutlet weak var passwordTextFeild: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
@@ -41,7 +43,7 @@ class signupViewController: UIViewController {
 
         usernameTextField.layer.cornerRadius = 18
         emailTextField.layer.cornerRadius = 18
-        dateOfBirthTextField.layer.cornerRadius = 18
+        //dateOfBirthTextField.layer.cornerRadius = 18
         cityTextField.layer.cornerRadius = 18
         
         passwordTextFeild.layer.cornerRadius = 18
@@ -60,13 +62,7 @@ class signupViewController: UIViewController {
     
     @IBAction func registerButtonPressed(_ sender: Any) {
        
-        //button action
-        if isActive{
-            isActive = false
-            changeImageSignupButton.setImage(UIImage(named: "signup_button02.svg"), for: .normal)
-        }else{
-            isActive = true
-            changeImageSignupButton.setImage(UIImage(named: "signup_button_pressed.svg"), for: .normal)
+     
             
         
             if isTextDataInputed(){
@@ -76,17 +72,19 @@ class signupViewController: UIViewController {
                 if passwordTextFeild.text! == confirmPasswordTextField.text!{
                     registerUser()//call register fucntion
                 }else{
+                    ProgressHUD.colorHUD = .purple
                     ProgressHUD.showError("passwords do not match ):")
                 }//end if else
                 registerUser()
                 
             }else{
+                ProgressHUD.colorHUD = .purple
                 ProgressHUD.showError("please fill in all fields")
             }//end if else
             
             
             
-        }
+        
         
     }//end registerButtonPressed
     
@@ -134,35 +132,36 @@ class signupViewController: UIViewController {
     //this function makes sure that all fields are filled out
     private func isTextDataInputed() -> Bool {
         
-        return usernameTextField.text != "" && emailTextField.text != "" && dateOfBirthTextField.text != "" && cityTextField.text != "" && passwordTextFeild.text != "" && confirmPasswordTextField.text != ""
+        return usernameTextField.text != "" && emailTextField.text != "" && cityTextField.text != "" && passwordTextFeild.text != "" && confirmPasswordTextField.text != ""
         
     }
     
     //MARK: - RegisterUser
     //When function called user object should be registered
     private func registerUser(){
-        
+        //print(dateOfBirthPicker.date)
         //showing progress for the user
         ProgressHUD.show()
-        
+
         //Forced Unwrapping function which checks if everything is entered
-        FirebaseUser.registerUserWith(userName: usernameTextField.text!, email: emailTextField.text!, dateOfBirth: Date(), isFemale: isFemale, city: cityTextField.text!, password: passwordTextFeild.text!, completion:{
+        FirebaseUser.registerUserWith(userName: usernameTextField.text!, email: emailTextField.text!, dateOfBirth: dateOfBirthPicker.date, isFemale: isFemale, city: cityTextField.text!, password: passwordTextFeild.text!, completion:{
             error in
-            
+
             //ProgressHUD.dismiss()
             //print("callback")
-            
+
             //chekicng if there was an error
             //if error is nill email is sent else show error
             //(error is forece unwrapped since it will have 1 as value)
             if error == nil{
+                ProgressHUD.colorHUD = .purple
                 ProgressHUD.showSuccess("verifiaction email sent!")
                 self.dismiss(animated: true, completion: nil)//dismissing the create account ui
             }else{
                 ProgressHUD.showError(error!.localizedDescription)
             }
-            
-            
+
+
         })
         
     }//end registerUser

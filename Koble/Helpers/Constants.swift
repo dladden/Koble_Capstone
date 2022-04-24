@@ -29,6 +29,7 @@ public let kCURRENTJOB = "currentJob"
 public let kCOUNTRY = "country"
 public let kINTERESTEDIN = "interestedIn"
 public let kPROFILEIMGLINK = "profImgLink"
+public let kABOUTINTEREST = "aboutInterest"
 
 public let kLIKEDARRAY = "likedIdArray"
 public let kIMAGELINKS = "imageLinks"

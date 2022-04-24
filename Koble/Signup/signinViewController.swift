@@ -38,6 +38,10 @@ class signinViewController: UIViewController {
         
         if emailTextField.text != "" && passwordTextField.text != ""{
             
+            //PreogressHUD spinner which will end after excution in this scope ends
+            ProgressHUD.colorHUD = .purple
+            ProgressHUD.show()
+            
             FirebaseUser.loginUserWith(email: emailTextField.text!, password: passwordTextField.text!) { (error, isEmailVarified) in
                 //if there are an erros since it would be not nill
                 if error != nil {
@@ -47,12 +51,16 @@ class signinViewController: UIViewController {
                     
                 }else if isEmailVarified {
                     
+                    ProgressHUD.colorHUD = .purple
+                    ProgressHUD.dismiss()
+                    
                     //enter the application
                     self.goToApp()
                     
+                    ProgressHUD.colorHUD = .purple
                     print("user enters the app")
                 }else{
-                    
+                    ProgressHUD.colorHUD = .purple
                     ProgressHUD.showError("Please verify your email ")
                     
                 }
@@ -61,6 +69,7 @@ class signinViewController: UIViewController {
             
         }else{
             //show error
+            ProgressHUD.colorHUD = .purple
             ProgressHUD.showError("please add your email and password")
         }//end else
         

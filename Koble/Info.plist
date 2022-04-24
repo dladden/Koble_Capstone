@@ -66,5 +66,13 @@
 	<array>
 		<string>Rubik-Bold.ttf</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Koble would like to use your Camera</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Koble would like to access your Media Libary</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Koble would like to use your Photo Libary</string>
 </dict>
 </plist>

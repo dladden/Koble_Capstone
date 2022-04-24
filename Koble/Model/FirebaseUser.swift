@@ -10,6 +10,7 @@ import Firebase
 import UIKit
 import AudioToolbox
 
+
 //Equitable checks if one user equals to another.
 //This is done so we know when a user has returened
 //to the app or new user has joined the app.
@@ -36,6 +37,7 @@ class FirebaseUser: Equatable{
     var country: String
     var interestedIn: String//the gender user is looking to connect with
     var profImgLink: String//used to store the link of image in firebase
+    var aboutInterest: String
     
     //array to store the already liked profile of the user to eliminate repeats
     var likedIdArray: [String]?
@@ -63,6 +65,7 @@ class FirebaseUser: Equatable{
                     self.country,
                     self.interestedIn,
                     self.profImgLink,
+                    self.aboutInterest,
                     //arays
                     self.likedIdArray ?? [],
                     self.imageLinks ?? [],
@@ -83,6 +86,7 @@ class FirebaseUser: Equatable{
                     kCOUNTRY as NSCopying,
                     kINTERESTEDIN as NSCopying,
                     kPROFILEIMGLINK as NSCopying,
+                    kABOUTINTEREST as NSCopying,
                     
                     kLIKEDARRAY as NSCopying,
                     kIMAGELINKS as NSCopying,
@@ -110,6 +114,7 @@ class FirebaseUser: Equatable{
         interest = ""
         currentJob = ""
         interestedIn = ""
+        aboutInterest = ""
         //initialized arrays
         likedIdArray = []
         imageLinks = []
@@ -132,6 +137,7 @@ class FirebaseUser: Equatable{
         interest = _dictionary[kINTEREST] as? String ?? ""
         currentJob = _dictionary[kCURRENTJOB] as? String ?? ""
         interestedIn = _dictionary[kINTERESTEDIN] as? String ?? ""
+        aboutInterest = _dictionary[kABOUTINTEREST] as? String ?? ""
         //initialized arrays
         likedIdArray = _dictionary[kINTERESTEDIN] as? [String]
         imageLinks = _dictionary[kINTERESTEDIN] as? [String]
@@ -143,8 +149,28 @@ class FirebaseUser: Equatable{
             dateOfBirth = _dictionary[kDATEOFBIRTH] as? Date ?? Date()
         }
         
-        
     }//end initializer
+    
+    //MARK: - Returning User Info to Profile
+    //getting the user object for the logged in portion
+    class func currentId() -> String{
+        //returns current ID of the user which is currently logged in
+        return Auth.auth().currentUser!.uid
+    }//end return current user
+    
+    class func currentUser() -> FirebaseUser? {
+        //checking to see if there is a current user
+        if Auth.auth().currentUser != nil{
+            //if not nil check to see if there is user in the userDefault in Constants file
+            if let userDic = userDefault.object(forKey: kCURRENTUSER){
+                //if there is something there return userDic witht he data
+                return FirebaseUser(_dictionary: userDic as! NSDictionary)
+                
+            }
+        }
+        return nil//return nil with there is no user
+    }
+    
     
     
     //MARK: - Loggin User
