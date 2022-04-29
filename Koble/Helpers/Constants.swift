@@ -10,6 +10,8 @@ import Foundation
 
 public let userDefault = UserDefaults.standard
 
+//firebas storage reference of the folder path directory to use as constant
+public let KFILEREFERENCE = "gs://koble-5af3f.appspot.com/"
 
 
 /*

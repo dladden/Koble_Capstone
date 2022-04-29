@@ -149,6 +149,10 @@ class FirebaseUser: Equatable{
             dateOfBirth = _dictionary[kDATEOFBIRTH] as? Date ?? Date()
         }
         
+        let placeholder = "profile_placeholder"
+        profImg = UIImage(named: placeholder)
+        
+        
     }//end initializer
     
     //MARK: - Returning User Info to Profile

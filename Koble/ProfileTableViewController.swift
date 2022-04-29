@@ -95,7 +95,7 @@ class ProfileTableViewController: UITableViewController {
     
     
     @IBAction func mediaButtonPressed(_ sender: Any) {
-        
+        ProgressHUD.show("take a selfie 🤳", icon: .heart)
         showMediaOptions()
         
     }
@@ -112,7 +112,7 @@ class ProfileTableViewController: UITableViewController {
     }//end editButtonPressed
     
     
-    //saves the data of the user. Function for EDIT USER DATA!!
+    //saves the data of the user. Function to EDIT USER DATA!!
     @objc func editUserData(){
         //accesing the current FirebaseUser to upload the data
         let user = FirebaseUser.currentUser()!
@@ -133,12 +133,27 @@ class ProfileTableViewController: UITableViewController {
         //Firebase services are constly and we dont want to upload image file everytime
         //if not nil user changed the user image
         if imageProfile != nil{
-            
             //TODO: - Upload new user image then save user
+            //print("Image is selected and save pressed")
+            //UPLOAD profImg and UPLOAD multiple Interest images
+            
+            //force enrwap since we check if it is nill above and forece cmopletion
+            //checks for the link
+            uploadProfImg(imageProfile!) {(profImgLink)in
+                //link is added to the profImgLink variable beloning to user
+                //a default value of "" is given since it is an optional
+                user.profImgLink = profImgLink ?? ""
+                //
+                user.profImg = self.imageProfile
+                //call self since it is not in scope of saveUSerData
+                self.saveUSerData(user: user)
+                self.loadUserInfo()//ensures that user info updated
+            }
             
         }else{
             //save
             saveUSerData(user: user)
+            loadUserInfo()
             
         }//end if for Profile image
         
@@ -146,7 +161,7 @@ class ProfileTableViewController: UITableViewController {
         edittingMode = false//disableing editing mode
         updateEdditnMode()//disabling all fields
         showSaveBUtton()//button disapears bc editing mode is now set to false
-        loadUserInfo()//ensures that user info updated
+       
         
         
     }//end editUser Data Objective-c
@@ -237,6 +252,9 @@ class ProfileTableViewController: UITableViewController {
         countryTextField.text = currentUser.country
         workTextField.text = currentUser.currentJob
         
+        //TODO: set user image in the app after upload
+        //storing the porfImg in the view image
+        profilePicture.image = currentUser.profImg
         
         
     }//end uploading current user info
@@ -273,7 +291,35 @@ class ProfileTableViewController: UITableViewController {
         self.view.endEditing(false)
     }//func to HIDE keyboard
     
+    //MARK: - Storage Work for FileStorage
+    //Upload Image Profile Uploads the profImg and then provides the link to that image
+    private func uploadProfImg(_ image: UIImage, completion: @escaping (_ profImgLink: String?)-> Void){
+        
+        ProgressHUD.show()
+        //adressing (creting) directory profile_images and stroing the image as the UID
+        let fileDirectory = "profile_images/_"+FirebaseUser.currentId()+".jpg"
+        //accessing the upload function completion returns PROFILE LINK
+        FilesStorage.uploadImage(image, directory: fileDirectory) { (profImgLink) in
+            //dismiss the spinner after image is uploaded
+            ProgressHUD.dismiss()
+            //TODO: - First save file locally this will beggin the download when app is opened instead of when images bulled up
+            
+            //passing the profImgLink to the completion in uploadProfImg asan
+            completion(profImgLink)
+            
+        }
+        
+    }//end upload profile image
     
+    //used for uploading multiple images for user
+    private func uploadImages(images: [UIImage?]){
+        
+        ProgressHUD.show()//showiing progress to the user
+        
+        //TODO: - Upload Images Function (for the array):
+        
+        
+    }//end uploadImages
     
     
     //MARK: - Media Gallery
@@ -286,7 +332,7 @@ class ProfileTableViewController: UITableViewController {
         //delegate view set as the gallery object HERE
         self.mediaGallery.delegate = self
         //this sets the provided tabs of the gallery to be only image and camera omminting the video
-        Config.tabsToShow = [.cameraTab]//.imageTab
+        Config.tabsToShow = [.imageTab, .cameraTab]//.imageTab is omited
         //limit of 6 pics
         //Config.Camera.imageLimit = forProfImg ? 1 : 6
         //initial tab is the camera tab bc we want to encorage user to take a selfie
@@ -410,6 +456,7 @@ extension ProfileTableViewController: GalleryControllerDelegate{
                 //this sesction is for when user selects multiple images
                 Image.resolve(images: images) { (resolvedImages) in
                     
+                    self.uploadImages(images: resolvedImages)
                     
                     
                 }//end images resolve
