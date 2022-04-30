@@ -162,6 +162,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9A48856F281DE0C600057C83 /* Firebase_Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9A918F3F2815D8370010EF2E /* FileStorage.swift */,
+			);
+			path = Firebase_Helpers;
+			sourceTree = "<group>";
+		};
 		9A6E79F127EE8491000EA461 = {
 			isa = PBXGroup;
 			children = (
@@ -192,7 +200,7 @@
 				9A6E79FF27EE8491000EA461 /* SceneDelegate.swift */,
 				9A6E7A0127EE8491000EA461 /* ViewController.swift */,
 				9A96B88D280DED3C0096B57F /* ProfileTableViewController.swift */,
-				9A918F3F2815D8370010EF2E /* FileStorage.swift */,
+				9A48856F281DE0C600057C83 /* Firebase_Helpers */,
 				9A87469B280A38E500C59697 /* Signup */,
 				9A874699280A389200C59697 /* Model */,
 				9A87469A280A38B800C59697 /* Helpers */,

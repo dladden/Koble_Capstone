@@ -46,6 +46,9 @@ class ProfileTableViewController: UITableViewController {
     //variable for uploading image for PROFILE specifically
     var uploadProfImage = true
     
+    //creating a global text field for settings function (will be initalized)
+    var alertTextField: UITextField!
+    
     
     //Global Variable: GalleryController is the main entry point, just instantiate and give it the delegate
     //github.com/hyperoslo/Gallery
@@ -72,6 +75,8 @@ class ProfileTableViewController: UITableViewController {
             //edit mode set to false, user cant eddit fields until he clicks EDIT
             updateEdditnMode()
             
+            // Hide Autolayout Warning
+           
         }//end load current user
         
         
@@ -224,7 +229,7 @@ class ProfileTableViewController: UITableViewController {
         //putting the button in the nav bar (if editing mode then saveButton else change it to nil
         navigationItem.rightBarButtonItem = edittingMode ? saveButton : nil
         
-        saveButton.tintColor = UIColor.gray
+        saveButton.tintColor = UIColor.white
         
         
     }
@@ -320,11 +325,23 @@ class ProfileTableViewController: UITableViewController {
     }//end upload profile image
     
     //used for uploading multiple images for user
-    private func uploadImages(images: [UIImage?]){
+    private func uploadInterests(images: [UIImage?]){
         
         ProgressHUD.show()//showiing progress to the user
         
         //TODO: - Upload Images Function (for the array):
+        //instantiating the uploadimages function
+        FilesStorage.uploadInterests(images) { (imageLinks) in
+            //instantiating a current user
+            let currentUSer = FirebaseUser.currentUser()!
+            
+            currentUSer.imageLinks = imageLinks
+            
+            self.saveUSerData(user: currentUSer)
+            
+            ProgressHUD.dismiss()
+            
+        }
         
         
     }//end uploadImages
@@ -397,6 +414,31 @@ class ProfileTableViewController: UITableViewController {
         self.present(alertCotroller, animated: true, completion: nil)
         
     }
+    //USER SETTINGS
+    private func showChangeField(value: String){
+        
+        let alertView = UIAlertController(title: "updating \(value)", message: "please write your \(value)",preferredStyle: .alert)
+        
+        alertView.addTextField{(textField) in
+            //global variable
+            self.alertTextField = textField
+            self.alertTextField.placeholder = "new \(value)"
+            
+            alertView.addAction(UIAlertAction(title: "Update", style: .destructive, handler: { (action) in
+                print("updating \(value)")
+            }))
+            alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alertView, animated: true, completion: nil)
+            
+        }//end  alertView
+        
+        
+        
+    }//end func showChangeField
+    
+    
+    
+    
     
     //SETTINGS BUTTON
     private func showEdditOptions(){
@@ -404,15 +446,17 @@ class ProfileTableViewController: UITableViewController {
         let alertCotroller = UIAlertController(title: "edit account", message: "manage your accunt here", preferredStyle: .actionSheet)
         //first button
         alertCotroller.addAction(UIAlertAction(title: "change email", style: .default, handler: { (alert) in
-            print("hello")
+            //print("change email")
+            self.showChangeField(value: "email")
         }))
         //pictures of your interest
         alertCotroller.addAction(UIAlertAction(title: "profile name", style: .default, handler: { (alert) in
-            print("hello ooo")
+            //print("profile name")
+            
         }))
         //pictures of your interest
         alertCotroller.addAction(UIAlertAction(title: "username", style: .default, handler: { (alert) in
-            print("hello ooo")
+            self.showChangeField(value: "username")
         }))
         //pictures of your interest
         alertCotroller.addAction(UIAlertAction(title: "logout", style: .destructive, handler: { (alert) in
@@ -464,7 +508,7 @@ extension ProfileTableViewController: GalleryControllerDelegate{
                 //this sesction is for when user selects multiple images
                 Image.resolve(images: images) { (resolvedImages) in
                     
-                    self.uploadImages(images: resolvedImages)
+                    self.uploadInterests(images: resolvedImages)
                     
                     
                 }//end images resolve

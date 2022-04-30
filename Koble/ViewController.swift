@@ -17,7 +17,9 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    
+        
+        // TEMPORARILIY Hiding Autolayout Warning
+        UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
        
     
     }//

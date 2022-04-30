@@ -179,6 +179,20 @@ class FirebaseUser: Equatable{
         return nil//return nil with there is no user
     }
     
+    //MARK: - Saving Images
+    //This function accesses the downloadImage function and downloads in an image and sets avatar image
+    //didSet return bool for success true or false
+    func getProfImgFromFirebase(completion: @escaping (_ didSet: Bool) -> Void){
+        //profImg is an OPTIONAL
+        FilesStorage.downloadImage(imageUrl: self.profImgLink) { (imageProfile) in
+            let placeholder = "profile_placeholder"
+            //if imageProfile is nil return placeholder
+            self.profImg = imageProfile ?? UIImage(named: placeholder)
+            //profile image is set
+            completion(true)
+        }
+        
+    }
     
     
     //MARK: - Loggin User

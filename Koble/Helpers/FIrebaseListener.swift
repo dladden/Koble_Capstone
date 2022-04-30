@@ -35,6 +35,11 @@ class FirebaseListener{
                 //function that saves user localy
                 user.saveUSerLoc()
                 
+                //
+                user.getProfImgFromFirebase { (didSet) in
+                    
+                }
+                
             }else{
                 //user doesnt exist this will be first login
                 //Check if the user is already in user defaults under the current user key, if yes
