@@ -235,6 +235,12 @@ class ProfileTableViewController: UITableViewController {
     private func loadUserInfo(){
         //getting current user and storing it in current user
         let currentUser = FirebaseUser.currentUser()!
+        //accesing the
+        FilesStorage.downloadImage(imageUrl: currentUser.profImgLink){
+            (image) in 
+        }
+        
+        
         //PROFILE IMAGE AND NAME + AGE
         profilePicture.image = UIImage(named: "profile_placeholder")
         nameAgeLabel.text = currentUser.username + ", \(abs(currentUser.dateOfBirth.interval(ofComponent: .year, fromDate: Date())))"
@@ -303,6 +309,8 @@ class ProfileTableViewController: UITableViewController {
             //dismiss the spinner after image is uploaded
             ProgressHUD.dismiss()
             //TODO: - First save file locally this will beggin the download when app is opened instead of when images bulled up
+            //SAVING file locally user file directory
+            FilesStorage.saveImageLocally(imageData: image.jpegData(compressionQuality: 0.8)! as NSData, fileName: FirebaseUser.currentId())
             
             //passing the profImgLink to the completion in uploadProfImg asan
             completion(profImgLink)

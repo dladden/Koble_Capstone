@@ -149,8 +149,12 @@ class FirebaseUser: Equatable{
             dateOfBirth = _dictionary[kDATEOFBIRTH] as? Date ?? Date()
         }
         
+        /*
+         This section acesses the function in FileStorage which creates a file direcory
+         where the image is stored locally, if however there is no image it proveds the placeholder image
+         */
         let placeholder = "profile_placeholder"
-        profImg = UIImage(named: placeholder)
+        profImg = UIImage(contentsOfFile: fileDirectoryAccess(filename: self.objectId)) ?? UIImage(named: placeholder)
         
         
     }//end initializer
