@@ -100,6 +100,7 @@ class ProfileTableViewController: UITableViewController {
     
     
     @IBAction func mediaButtonPressed(_ sender: Any) {
+        ProgressHUD.colorHUD = .purple
         ProgressHUD.show("take a selfie 🤳", icon: .heart)
         showMediaOptions()
         
@@ -305,7 +306,7 @@ class ProfileTableViewController: UITableViewController {
     //MARK: - Storage Work for FileStorage
     //Upload Image Profile Uploads the profImg and then provides the link to that image
     private func uploadProfImg(_ image: UIImage, completion: @escaping (_ profImgLink: String?)-> Void){
-        
+        ProgressHUD.colorHUD = .purple
         ProgressHUD.show()
         //adressing (creting) directory profile_images and stroing the image as the UID
         let fileDirectory = "profile_images/_"+FirebaseUser.currentId()+".jpg"
@@ -326,7 +327,7 @@ class ProfileTableViewController: UITableViewController {
     
     //used for uploading multiple images for user
     private func uploadInterests(images: [UIImage?]){
-        
+        ProgressHUD.colorHUD = .purple
         ProgressHUD.show()//showiing progress to the user
         
         //TODO: - Upload Images Function (for the array):
@@ -414,31 +415,7 @@ class ProfileTableViewController: UITableViewController {
         self.present(alertCotroller, animated: true, completion: nil)
         
     }
-    //USER SETTINGS
-    private func showChangeField(value: String){
-        
-        let alertView = UIAlertController(title: "updating \(value)", message: "please write your \(value)",preferredStyle: .alert)
-        
-        alertView.addTextField{(textField) in
-            //global variable
-            self.alertTextField = textField
-            self.alertTextField.placeholder = "new \(value)"
-            
-            alertView.addAction(UIAlertAction(title: "Update", style: .destructive, handler: { (action) in
-                print("updating \(value)")
-            }))
-            alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            self.present(alertView, animated: true, completion: nil)
-            
-        }//end  alertView
-        
-        
-        
-    }//end func showChangeField
-    
-    
-    
-    
+   
     
     //SETTINGS BUTTON
     private func showEdditOptions(){
@@ -470,7 +447,88 @@ class ProfileTableViewController: UITableViewController {
         
     }
     
+    //USER SETTINGS
+    private func showChangeField(value: String){
+        
+        let alertView = UIAlertController(title: "updating \(value)", message: "please write your \(value)",preferredStyle: .alert)
+        
+        alertView.addTextField{(textField) in
+            //global variable
+            self.alertTextField = textField
+            self.alertTextField.placeholder = "new \(value)"
+            
+            alertView.addAction(UIAlertAction(title: "Update", style: .destructive, handler: { (action) in
+                print("updating \(value)")
+                
+                self.updateUserWith(value: value)
+                
+            }))
+            alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alertView, animated: true, completion: nil)
+            
+        }//end  alertView
+        
+        
+        
+    }//end func showChangeField
     
+    //MARK: - USER Info
+    //this function will check what it will update
+    private func updateUserWith(value: String){
+     
+        if alertTextField.text != ""{
+            
+            if value == "email"{
+                changeEmail()
+            }else{
+                //else update username
+                changeUserName()
+            }
+            
+        }else{
+            
+            ProgressHUD.colorHUD = .purple
+            ProgressHUD.showError("\(value) is empty")
+        }
+        
+        
+    }
+    //FUNCTION TO UPDATE EMAIL
+    private func changeEmail(){
+        //print("changing email \(alertTextField.text!)")
+        FirebaseUser.currentUser()?.updateUserEmail(newEmail: alertTextField.text!, completion: { (error) in
+            //if no error
+            if error == nil{
+                if let currentUser = FirebaseUser.currentUser(){
+                    //acess current user upadate current user
+                    currentUser.username = self.alertTextField.text!
+                    //save the new user
+                    self.saveUSerData(user: currentUser)
+                    
+                ProgressHUD.colorHUD = .purple
+                ProgressHUD.showSuccess("your email is updated")
+            }else{
+                ProgressHUD.colorHUD = .purple
+                ProgressHUD.showError(error?.localizedDescription)
+            }
+            
+        }
+        
+        })
+    }
+    //FUNCTION TO UPDATE THE USERNAME
+    private func changeUserName(){
+        //print("changing username \(alertTextField.text!)")
+        if let currentUser = FirebaseUser.currentUser(){
+            //acess current user upadate current user
+            currentUser.username = alertTextField.text!
+            //save the new user
+            saveUSerData(user: currentUser)
+            
+            //RELOADING CONTENT so that username is showed up
+            loadUserInfo()
+        }
+    }
     
 }//end class ProfileTableViewController
 
@@ -499,6 +557,7 @@ extension ProfileTableViewController: GalleryControllerDelegate{
                         //setgloba variable to icon
                         self.imageProfile = icon
                     }else{
+                        ProgressHUD.colorHUD = .purple
                         ProgressHUD.showError("no image selected")
                     }
                 }//end images.first!.resolve
@@ -534,6 +593,8 @@ extension ProfileTableViewController: GalleryControllerDelegate{
     func galleryControllerDidCancel(_ controller: GalleryController) {
         controller.dismiss(animated: true, completion: nil)
     }
+    
+    
     
     
     

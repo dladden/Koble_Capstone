@@ -283,9 +283,28 @@ class FirebaseUser: Equatable{
         
     }//end function registerUserWith
     
+    //MARK: - Edit User Email
+    //This fucntion gets new email and if error throw error
+    func updateUserEmail(newEmail: String, completion: @escaping (_ error: Error?) -> Void){
+        
+        Auth.auth().currentUser?.updateEmail(to: newEmail, completion: { (error) in
+            //resetting email
+            FirebaseUser.resendVerificationEmail(email: newEmail) { (error) in
+                
+            }
+
+            completion(error)
+        })
+        
+    }//end updateUserEmail
+    
+    
+    
+    
     //MARK: - SENDING LINKS (passord reset)
     //function which takes an email (has a complecion handler for error)
-    class func resetPasswordFor(email: String, completion: @escaping (_ error: Error?) -> Void){
+    
+    class func resendVerificationEmail(email: String, completion: @escaping (_ error: Error?) -> Void){
         //current user is a Firebase current use which is currently logged in is provided
         //by firebase. reload checks if it exist
         Auth.auth().currentUser?.reload(completion: { (error) in
@@ -300,7 +319,13 @@ class FirebaseUser: Equatable{
         
     }//end resetPasswordFor function
     
+    class func resetPasswordFor(email: String, completion: @escaping (_ error: Error?) -> Void){
     
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            completion(error)
+        }
+        
+    }//end resetPasswordFor
     
     //MARK: - Save User
     

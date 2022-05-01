@@ -17,7 +17,7 @@ target 'Koble' do
   end
 
 
-#all the services I will using with firebase
+#all the services I will using with firebase and github librarys
 
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
@@ -26,7 +26,7 @@ pod 'Firebase/Storage'
 pod 'Firebase/Analytics'
 pod 'Firebase/Messaging'
 
-pod 'Gallery'
+pod 'Gallery'#for photo picking
 
 pod 'NVActivityIndicatorView/AppExtension'
 pod 'ProgressHUD'
