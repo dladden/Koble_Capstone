@@ -24,7 +24,7 @@
         <!--Signin View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="signinViewController" customModule="Koble" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginView" id="BYZ-38-t0r" customClass="signinViewController" customModule="Koble" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -399,10 +399,10 @@
             </objects>
             <point key="canvasLocation" x="3686.9565217391305" y="-1714.2857142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Shuffle View Controller-->
         <scene sceneID="Pa7-5J-kkZ">
             <objects>
-                <viewController id="5f0-Bo-niy" sceneMemberID="viewController">
+                <viewController id="5f0-Bo-niy" customClass="ShuffleViewController" customModule="Koble" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xAC-Rc-ygZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

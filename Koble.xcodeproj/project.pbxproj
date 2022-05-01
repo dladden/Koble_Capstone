@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		16C0AA1A5E13CB05D1959E0C /* Pods_Koble_KobleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A17EF39D42F856583DDB8AB /* Pods_Koble_KobleUITests.framework */; };
 		6FE8A72E8C5B5AC2CEA40F89 /* Pods_Koble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B58F8C40635476B32CF37FC /* Pods_Koble.framework */; };
+		9A4BEDD4281F1D0C00B239AD /* ShuffleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4BEDD3281F1D0C00B239AD /* ShuffleViewController.swift */; };
 		9A527CE9280249140043AE55 /* signinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A527CE8280249140043AE55 /* signinViewController.swift */; };
 		9A527CEB2802493F0043AE55 /* signupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A527CEA2802493F0043AE55 /* signupViewController.swift */; };
 		9A594A112804C4860088DE28 /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A594A102804C4860088DE28 /* FirebaseUser.swift */; };
@@ -69,6 +70,7 @@
 		55C51B4AE2076A6EF338E279 /* Pods-KobleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KobleTests.release.xcconfig"; path = "Target Support Files/Pods-KobleTests/Pods-KobleTests.release.xcconfig"; sourceTree = "<group>"; };
 		647BD3BBAF28C31DDA79BB9D /* Pods_KobleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KobleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		896BB52F0946D5409327CB17 /* Pods-Koble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koble.debug.xcconfig"; path = "Target Support Files/Pods-Koble/Pods-Koble.debug.xcconfig"; sourceTree = "<group>"; };
+		9A4BEDD3281F1D0C00B239AD /* ShuffleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleViewController.swift; sourceTree = "<group>"; };
 		9A527CE8280249140043AE55 /* signinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signinViewController.swift; sourceTree = "<group>"; };
 		9A527CEA2802493F0043AE55 /* signupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signupViewController.swift; sourceTree = "<group>"; };
 		9A594A102804C4860088DE28 /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				9A6E79FF27EE8491000EA461 /* SceneDelegate.swift */,
 				9A6E7A0127EE8491000EA461 /* ViewController.swift */,
 				9A96B88D280DED3C0096B57F /* ProfileTableViewController.swift */,
+				9A4BEDD3281F1D0C00B239AD /* ShuffleViewController.swift */,
 				9A48856F281DE0C600057C83 /* Firebase_Helpers */,
 				9A87469B280A38E500C59697 /* Signup */,
 				9A874699280A389200C59697 /* Model */,
@@ -544,6 +547,7 @@
 				9A8746982809CAA400C59697 /* Constants.swift in Sources */,
 				9A6E7A0027EE8491000EA461 /* SceneDelegate.swift in Sources */,
 				9AD367B2280F09360053A411 /* Extensions.swift in Sources */,
+				9A4BEDD4281F1D0C00B239AD /* ShuffleViewController.swift in Sources */,
 				9A594A112804C4860088DE28 /* FirebaseUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

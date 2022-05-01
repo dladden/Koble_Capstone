@@ -252,7 +252,7 @@ class FirebaseUser: Equatable{
                     //this is a authentication provide by Firebase
                     //user object is provided by Firebase to send a
                     //verification email
-                    authData!.user.sendEmailVerification { error in
+                    authData!.user.sendEmailVerification { (error) in
                             
                         print("auth email verification sent ", error?.localizedDescription)
                             //localized description describes the error
@@ -326,6 +326,27 @@ class FirebaseUser: Equatable{
         }
         
     }//end resetPasswordFor
+    
+    //MARK: - Logout
+    //log out for current user (may 1)
+    class func logOutCurrentUser(completion: @escaping(_ error: Error?) -> Void){
+        //sign in error could be presented as trows this sign out portion is wrapped
+        //to catch the error
+        do {
+            try Auth.auth().signOut()
+            userDefault.removeObject(forKey: kCURRENTUSER)
+            userDefault.synchronize()
+            //if all goes well provide no error nil
+            completion(nil)
+        }catch let error as NSError{
+            completion(error)
+        }
+        
+        
+    }//end LOGOUT
+    
+    
+    
     
     //MARK: - Save User
     

@@ -437,7 +437,9 @@ class ProfileTableViewController: UITableViewController {
         }))
         //pictures of your interest
         alertCotroller.addAction(UIAlertAction(title: "logout", style: .destructive, handler: { (alert) in
-            print("hello ooo")
+            //print("logout user")
+            self.logOutUser()
+            
         }))
         //canel portion
         alertCotroller.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil
@@ -450,12 +452,13 @@ class ProfileTableViewController: UITableViewController {
     //USER SETTINGS
     private func showChangeField(value: String){
         
-        let alertView = UIAlertController(title: "updating \(value)", message: "please write your \(value)",preferredStyle: .alert)
+        let alertView = UIAlertController(title: "updating \(value)", message: "please write your new \(value)",preferredStyle: .alert)
         
         alertView.addTextField{(textField) in
             //global variable
             self.alertTextField = textField
             self.alertTextField.placeholder = "new \(value)"
+            
             
             alertView.addAction(UIAlertAction(title: "Update", style: .destructive, handler: { (action) in
                 print("updating \(value)")
@@ -471,6 +474,34 @@ class ProfileTableViewController: UITableViewController {
         
         
     }//end func showChangeField
+    
+    //MARK: - Logout
+    //may 1: logput for user 
+    private func logOutUser(){
+        
+        FirebaseUser.logOutCurrentUser { (error) in
+            //checking for errors
+            if error == nil{
+                
+                let loginView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginView")
+                
+                //presenting the login on the main thread
+                DispatchQueue.main.async {
+                    loginView.modalPresentationStyle = .fullScreen
+                    self.present(loginView, animated: true, completion: nil)
+                }
+                
+            }else{
+                ProgressHUD.showError(error!.localizedDescription)
+                
+            }
+            
+            
+            
+        }//end instantiating logout
+        
+    }//end logOutUser
+    
     
     //MARK: - USER Info
     //this function will check what it will update
