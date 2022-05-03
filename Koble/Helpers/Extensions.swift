@@ -46,8 +46,8 @@ extension UIColor{
         return UIColor(red: 0.9725, green: 0.8078, blue: 0.9255, alpha: 1)
     }
     
-    static var sampleRed = UIColor(red: 252/255, green: 70/255, blue: 93/255, alpha: 1)
-    static var sampleGreen = UIColor(red: 49/255, green: 193/255, blue: 109/255, alpha: 1)
+    static var sampleRed = UIColor(white: 1, alpha: 0.01)
+    static var sampleClear = UIColor(white: 1, alpha: 0.01)
     static var sampleBlue = UIColor(red: 52/255, green: 154/255, blue: 254/255, alpha: 1)
     
 }

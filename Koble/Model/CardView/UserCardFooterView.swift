@@ -22,7 +22,7 @@ class UserCardFooterView: UIView{
         backgroundColor = .clear
         //masking corners
         layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        layer.cornerRadius = 10
+        layer.cornerRadius = 12
         clipsToBounds = true
         isOpaque = false
         initialize(title: title, subtitle: subTitle)
@@ -36,6 +36,7 @@ class UserCardFooterView: UIView{
         //string which cannot be chmaged after initialization
         let attributedText = NSMutableAttributedString(string: (title ?? "") + "\n", attributes: NSAttributedString.Key.titleAttributes)
         
+        print("init footer", title, subtitle)
         
         if let subtitle = subtitle, subtitle != "" {
             
@@ -44,10 +45,10 @@ class UserCardFooterView: UIView{
             paragraphStyle.lineSpacing = 4
             paragraphStyle.lineBreakMode = .byTruncatingTail
             attributedText.addAttributes([NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: attributedText.length))
-            label.attributedText = attributedText
-            addSubview(label)
+            label.numberOfLines = 2
         }
-        
+        label.attributedText = attributedText
+        addSubview(label)
     }
     
     override func layoutSubviews() {

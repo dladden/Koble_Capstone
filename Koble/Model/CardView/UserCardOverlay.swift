@@ -37,7 +37,7 @@ class UserCardOverlay: UIView {
     
     
     private func createLeftOverlay(){
-        let leftTextView = SampleOverlayLabelView(title: "no", color: .sampleRed, rotation: CGFloat.pi/10)
+        let leftTextView = SampleOverlayLabelView(title: "✖️", color: .sampleRed, rotation: CGFloat.pi/10)
         //LIKE
         addSubview(leftTextView)
         //bottom: ,left: ,paddingLeft: , paddingBottom: ,width: CGFloat, height: CGFloat
@@ -49,7 +49,7 @@ class UserCardOverlay: UIView {
     }//end LEFT
     
     private func createRightOverlay(){
-            let rightTextView = SampleOverlayLabelView(title: "🤍", color: .sampleGreen, rotation: -CGFloat.pi/10)
+            let rightTextView = SampleOverlayLabelView(title: "🤍", color: .sampleClear, rotation: -CGFloat.pi/10)
             //NOPE
             addSubview(rightTextView)
             //bottom: ,left: ,paddingLeft: , paddingBottom: ,width: CGFloat, height: CGFloat

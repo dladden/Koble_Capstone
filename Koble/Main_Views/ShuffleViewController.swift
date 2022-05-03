@@ -25,12 +25,19 @@ class ShuffleViewController: UIViewController {
     
     
     
-    //MARK: - View Lifecycle
     
+    
+    //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        let user = FirebaseUser.currentUser()!
         
+        //FUNCTION CREATED TO UPLOAD TEST USERS
+        //createUsers()
+        
+        //TEMPORARY COMMENT OUT
+/*
+        let user = FirebaseUser.currentUser()!
+
         let cardModel = UserCardModel(id: user.objectId,
                                       name: user.username,
                                       age: abs(user.dateOfBirth.interval(ofComponent: .year, fromDate: Date())),
@@ -39,11 +46,14 @@ class ShuffleViewController: UIViewController {
         
         initialCardModels.append(cardModel)
         layoutCardsStackView()
-        
+*/
         
 
+        downloadInitialUSers()
+        
        
-    }//end viewDidLoad
+    }//end viewDidLoad LIFE CYCLE
+    
     
     //MARK: - layout Cards
     //refresh the table view
@@ -62,6 +72,14 @@ class ShuffleViewController: UIViewController {
         
         
     }
+    
+    //MARK: - DownLoadUSers
+    
+    
+    
+    
+    
+    
 }//end ShuffleViewController
 
 
@@ -71,7 +89,7 @@ class ShuffleViewController: UIViewController {
 //EXTENSION: confominf to protocol StackDelegate & DataSource
 extension ShuffleViewController: SwipeCardStackDelegate, SwipeCardStackDataSource {
     
-    
+   //MARK: - Data Source
     //Data source:
     func cardStack(_ cardStack: SwipeCardStack, cardForIndexAt index: Int) -> SwipeCard {
     
@@ -101,6 +119,33 @@ extension ShuffleViewController: SwipeCardStackDelegate, SwipeCardStackDataSourc
      
         return initialCardModels.count
     }
+    
+    //MARK: - Delegate
+    
+    /*
+     This section is used to see if card has been selected, which card was swiped and which direction,
+     and if the stack is finished
+     */
+    
+    func didSwipeAllCards(_ cardStack: SwipeCardStack) {
+        
+        print("Stack is Empty")
+        
+    }//end did all swiped ??
+    
+    //tells which card was swipped and to which direction
+    func cardStack(_ cardStack: SwipeCardStack, didSwipeCardAt index: Int, with direction: SwipeDirection) {
+        
+        print("Swiped to", direction)
+        
+    }//end
+    
+    //tells where it was swipped
+    func cardStack(_ cardStack: SwipeCardStack, didSelectCardAt index: Int) {
+        
+        print("Selcted card at", index)
+    }
+    
     
     
   

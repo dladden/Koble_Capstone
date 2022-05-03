@@ -375,3 +375,43 @@ class FirebaseUser: Equatable{
     }//end saveUserToFirestore
     
 }//end eqyuitable
+
+
+
+//temporary function
+func createUsers(){
+    
+    let name = ["Chopin", "Ros", "Win", "Arnoldi", "Keanu", "Linus", "Margot01", "Emil", "Samo", "Snookie"]
+    
+    var imageIndex = 1
+    
+    var userIndex = 1
+    
+    var isFemale = true
+    
+    for i in 0..<9{
+        
+        let id = UUID().uuidString
+        let fileDirectory  = "profile_images/_" + id + ".jpg"
+        
+        FilesStorage.uploadImage(UIImage(named: "user\(imageIndex)")!, directory: fileDirectory) { (profImgLink) in
+            
+            let user = FirebaseUser(_objectId: id, _username: name[i], _email: "user\(userIndex)@mail.com", _city: "Louisville", _dateOfBirth: Date(), _isFemale: isFemale, _profImgLink: profImgLink ?? "")
+            
+            isFemale.toggle()
+            userIndex += 1
+            user.saveUserToFirestore()
+            
+        }//end file storage
+        
+        imageIndex += 1
+        if imageIndex == 9{
+            imageIndex = 1//assinging one after images runout
+        }
+            
+        
+    }//END FOR LOOP
+    
+}
+
+
