@@ -1,16 +1,8 @@
-**Final Report** 1
 
 **Kobble**** : iOS Dating Application**
 
-dladden@bellarmine.edu
 
-Computer Science and Computer Engineering, Bellarmine University
-
-**CS450: Capstone**
-
-Dr. Nathan Johnson
-
-**Executive Summary**
+**Summary**
 
 In Norwegian, "kobble" means to connect from the noun "koble". The idea of the iOS-based application name comes from the desire to find a name with a meaning which describes the concept of a product that embodies the purpose of connecting the users. Yet foremost, through the inspiration of a dear friend of mine. The goal of Kobble is to connect users based on one-word interests. However, to retain the standard features of modern applications. The flexibility drives the prototype as a cloud-based application and a natively driven prototype. With the use of Xcode IDE, Firebase Console, and dependency manager, a minimum viable product is developed which the intensions of a fully driven application. This makes a robust prototype with the full objective of creating a full-fledged product. Due to possible trademark mishaps, as the name operantly is taken by a few applications, the modified interest-based app is called Kobble.
 
